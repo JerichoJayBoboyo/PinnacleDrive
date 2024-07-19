@@ -1,0 +1,710 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+/* COLORS */
+/* FONTS-FAMILY */
+/* FONTS-SIZES */
+/* MIXIN DISPLAY */
+html {
+  scroll-behavior: smooth;
+}
+
+body nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  background: white;
+  box-shadow: 0px 2px 15px 3px rgba(0, 0, 0, 0.75);
+  position: fixed;
+  top: 0%;
+  z-index: 10;
+}
+body nav .nav-main-cntr {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  width: min(1300px, 100%);
+  height: 100%;
+  background: white;
+}
+body nav .nav-main-cntr .logo {
+  height: 100%;
+  overflow: hidden;
+  padding: 5px;
+}
+body nav .nav-main-cntr .logo img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+body nav .nav-main-cntr .nav-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  height: 100%;
+  padding: 5px;
+}
+@media only screen and (max-width: 800px) {
+  body nav .nav-main-cntr .nav-links {
+    position: fixed;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: -500px;
+    background-color: white;
+    box-shadow: 0px 2px 15px 3px rgba(0, 0, 0, 0.75);
+    z-index: -1;
+    padding-top: 80px;
+    transition: 0.5s all linear;
+  }
+}
+body nav .nav-main-cntr .nav-links a {
+  display: flex;
+  text-decoration: none;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  color: black;
+  font-family: "Unna", serif;
+  transition: 0.2s all linear;
+}
+body nav .nav-main-cntr .nav-links a:hover {
+  color: #80B192;
+}
+body nav .nav-main-cntr .nav-links.active {
+  top: 0px;
+}
+body nav .nav-main-cntr button {
+  margin-right: 30px;
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s all linear;
+  padding: 5px;
+  border-radius: 5px;
+  color: black;
+  font-size: 2rem;
+}
+body nav .nav-main-cntr button .fa-xmark {
+  display: none;
+}
+@media only screen and (max-width: 800px) {
+  body nav .nav-main-cntr button {
+    display: initial;
+  }
+}
+body nav .nav-main-cntr button:hover {
+  background: #4B5320;
+  color: white;
+}
+body main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  width: 100%;
+}
+body main section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: min(1300px, 100%);
+  min-height: 100vh;
+  padding: 100px 10px 10px 10px;
+}
+@media only screen and (max-width: 800px) {
+  body main section {
+    min-height: 600px;
+  }
+}
+body main .home-section {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+body main .home-section .img-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+body main .home-section .home-cntr {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: min(1300px, 100%);
+  min-height: 700px;
+  padding: 10px;
+}
+@media only screen and (max-width: 900px) {
+  body main .home-section .home-cntr {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+body main .home-section .home-cntr .img-cntr {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  gap: 10px;
+}
+body main .home-section .home-cntr .img-cntr img {
+  box-sizing: content-box;
+  width: 170px;
+  height: 170px;
+  border-top: 10px solid #80B192;
+  border-left: 10px solid #80B192;
+  border-right: 10px solid #80B192;
+  border-bottom: 50px solid #80B192;
+}
+@media only screen and (max-width: 900px) {
+  body main .home-section .home-cntr .img-cntr img {
+    width: 130px;
+    height: 130px;
+    border-top: 6px solid #80B192;
+    border-left: 6px solid #80B192;
+    border-right: 6px solid #80B192;
+    border-bottom: 30px solid #80B192;
+  }
+}
+@media only screen and (max-width: 600px) {
+  body main .home-section .home-cntr .img-cntr img {
+    width: 100px;
+    height: 100px;
+    border-top: 3px solid #80B192;
+    border-left: 3px solid #80B192;
+    border-right: 3px solid #80B192;
+    border-bottom: 15px solid #80B192;
+  }
+}
+body main .home-section .home-cntr .img-cntr .img-one {
+  transform: rotate(10deg);
+}
+body main .home-section .home-cntr .introduction-cntr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  min-height: 400px;
+  padding: 10px;
+  background-color: rgba(175, 175, 175, 0.1);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  border: 3px solid rgba(175, 175, 175, 0.2);
+}
+body main .home-section .home-cntr .introduction-cntr .slogan {
+  color: rgb(236, 236, 236);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  line-height: 0.9;
+  width: 100%;
+  font-weight: 700;
+  text-align: left;
+  font-family: "Sriracha", cursive, serif;
+  letter-spacing: 2px;
+  text-shadow: -5px 4px 6px rgba(0, 0, 0, 0.6);
+}
+@media only screen and (max-width: 900px) {
+  body main .home-section .home-cntr .introduction-cntr .slogan {
+    text-align: center;
+  }
+}
+body main .home-section .home-cntr .introduction-cntr .slogan .journey-txt {
+  color: #4B5320;
+}
+body main .home-section .home-cntr .introduction-cntr .intro-txt {
+  color: rgb(236, 236, 236);
+  text-shadow: -5px 4px 6px rgba(0, 0, 0, 0.6);
+  width: 100%;
+  text-align: center;
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  font-weight: 600;
+  font-family: "Unna", serif;
+}
+body main .home-section .home-cntr .introduction-cntr .contact-info-cntr {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  width: 100%;
+  padding: 5px;
+}
+body main .home-section .home-cntr .introduction-cntr .contact-info-cntr a {
+  text-decoration: none;
+  color: white;
+  font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+  padding: 5px 20px;
+  background: none;
+  transition: 0.2s all linear;
+  border-radius: 10px;
+}
+body main .home-section .home-cntr .introduction-cntr .contact-info-cntr a i {
+  margin-right: 5px;
+}
+body main .home-section .home-cntr .introduction-cntr .contact-info-cntr a:hover {
+  color: black;
+  background: #DEFFD3;
+}
+body main .service-section {
+  width: 100%;
+}
+body main .service-section .service-cntr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: min(1300px, 100%);
+  min-height: 700px;
+  padding: 10px;
+}
+body main .service-section .service-cntr .section-title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-family: "Marck Script", cursive, serif;
+  letter-spacing: 10px;
+  color: #4B5320;
+  text-shadow: -5px 4px 6px rgba(0, 0, 0, 0.6);
+  width: 100%;
+}
+body main .service-section .service-cntr .service-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+body main .service-section .service-cntr .service-content .service-offer-cntr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background: #f1f1f1;
+  padding: 10px;
+}
+@media only screen and (max-width: 1100px) {
+  body main .service-section .service-cntr .service-content .service-offer-cntr {
+    background: #DEFFD3;
+  }
+}
+body main .service-section .service-cntr .service-content .service-offer-cntr .car-rental-with-driver {
+  text-align: center;
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  font-family: "Unna", serif;
+  width: 100%;
+}
+body main .service-section .service-cntr .service-content .service-offer-cntr .offers-cntr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  padding: 10px;
+}
+body main .service-section .service-cntr .service-content .service-offer-cntr .offers-cntr .offer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  width: min(500px, 100%);
+  min-height: 150px;
+  gap: 10px;
+  padding: 5px;
+}
+@media only screen and (max-width: 450px) {
+  body main .service-section .service-cntr .service-content .service-offer-cntr .offers-cntr .offer {
+    flex-direction: column;
+    min-height: 250px;
+  }
+}
+body main .service-section .service-cntr .service-content .service-offer-cntr .offers-cntr .offer img {
+  width: 150px;
+  height: 100%;
+}
+body main .service-section .service-cntr .service-content .service-offer-cntr .offers-cntr .offer .offer-txt-cntr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  height: 100%;
+}
+body main .service-section .service-cntr .service-content .service-offer-cntr .offers-cntr .offer .offer-txt-cntr .offer-title {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+}
+body main .service-section .service-cntr .service-content .service-offer-cntr .offers-cntr .offer .offer-txt-cntr .offer-details {
+  font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+  font-family: "Mukta", sans-serif;
+  text-align: left;
+}
+body main .service-section .service-cntr .service-content .service-offer-cntr .service-note {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background: white;
+}
+body main .service-section .service-cntr .service-content .service-offer-cntr .service-note .note-title {
+  font-family: "Unna", serif;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 700;
+}
+body main .service-section .service-cntr .service-content .service-offer-cntr .service-note .note-list-cntr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Unna", serif;
+  gap: 5px;
+  line-height: 1px;
+}
+body main .service-section .service-cntr .service-content .service-offer-cntr .service-note .note-list-cntr .note-details {
+  width: 100%;
+  font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+  font-family: "Mukta", sans-serif;
+}
+body main .service-section .service-cntr .service-content .service-offer-cntr .service-note .note-list-cntr .note-details i {
+  color: #80B192;
+}
+body main .service-section .service-offer-img {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 700px;
+  overflow: hidden;
+}
+@media only screen and (max-width: 1100px) {
+  body main .service-section .service-offer-img {
+    display: none;
+  }
+}
+body main .service-section .service-offer-img img {
+  -o-object-fit: fill;
+     object-fit: fill;
+  width: 100%;
+  overflow: hidden;
+  height: 100%;
+  border-radius: 100px 0px 100px 0px;
+}
+body main .driver-and-vehicle-section {
+  width: 100%;
+  background: #f1f1f1;
+}
+body main .driver-and-vehicle-section .driver-and-vehicle-cntr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: min(1300px, 100%);
+  min-height: 700px;
+  padding: 10px;
+}
+body main .driver-and-vehicle-section .driver-and-vehicle-cntr .driver-and-vehicle-title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-family: "Marck Script", cursive, serif;
+  letter-spacing: 10px;
+  color: #4B5320;
+  text-shadow: -5px 4px 6px rgba(0, 0, 0, 0.6);
+  width: 100%;
+}
+body main .driver-and-vehicle-section .driver-and-vehicle-cntr .driver-and-vehicle-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 50px;
+}
+@media only screen and (max-width: 800px) {
+  body main .driver-and-vehicle-section .driver-and-vehicle-cntr .driver-and-vehicle-content {
+    flex-direction: column;
+  }
+}
+body main .driver-and-vehicle-section .driver-and-vehicle-cntr .driver-and-vehicle-content .driver-content-cntr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 600px;
+  gap: 10px;
+}
+body main .driver-and-vehicle-section .driver-and-vehicle-cntr .driver-and-vehicle-content .driver-content-cntr .driver-title {
+  text-align: center;
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  font-family: "Unna", serif;
+  width: 100%;
+}
+body main .driver-and-vehicle-section .driver-and-vehicle-cntr .driver-and-vehicle-content .driver-content-cntr .driver-img-cntr {
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  border-radius: 30% 70% 43% 57%/92% 60% 40% 8%;
+  animation: borderAnimate 40s linear infinite;
+  box-shadow: inset 0px 10px 14px 0px rgba(0, 0, 0, 0.75);
+}
+@keyframes borderAnimate {
+  10% {
+    border-radius: 62% 38% 29% 71%/78% 43% 57% 22%;
+  }
+  30% {
+    border-radius: 49% 51% 17% 83%/46% 33% 67% 54%;
+  }
+  50% {
+    border-radius: 21% 79% 58% 42%/66% 68% 32% 34%;
+  }
+  70% {
+    border-radius: 47% 53% 35% 65%/21% 84% 16% 79%;
+  }
+  100% {
+    border-radius: 62% 38% 29% 71%/78% 43% 57% 22%;
+  }
+}
+body main .driver-and-vehicle-section .driver-and-vehicle-cntr .driver-and-vehicle-content .driver-content-cntr .driver-img-cntr img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+body main .driver-and-vehicle-section .driver-and-vehicle-cntr .driver-and-vehicle-content .driver-content-cntr .driver-details {
+  font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+  text-align: left;
+  font-family: "Sriracha", cursive, serif;
+}
+body main .driver-and-vehicle-section .driver-and-vehicle-cntr .driver-and-vehicle-content .vehicle-content-cntr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 500px;
+  gap: 20px;
+}
+body main .driver-and-vehicle-section .driver-and-vehicle-cntr .driver-and-vehicle-content .vehicle-content-cntr .vehicle-title {
+  text-align: center;
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  font-family: "Unna", serif;
+  width: 100%;
+}
+body main .driver-and-vehicle-section .driver-and-vehicle-cntr .driver-and-vehicle-content .vehicle-content-cntr .vehicle-img-cntr {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 20px;
+}
+body main .driver-and-vehicle-section .driver-and-vehicle-cntr .driver-and-vehicle-content .vehicle-content-cntr .vehicle-img-cntr img {
+  width: 100%;
+}
+body main .driver-and-vehicle-section .driver-and-vehicle-cntr .driver-and-vehicle-content .vehicle-content-cntr .vehicle-specs-cntr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background: white;
+  border-radius: 20px;
+}
+body main .driver-and-vehicle-section .driver-and-vehicle-cntr .driver-and-vehicle-content .vehicle-content-cntr .vehicle-specs-cntr .vehicle-name {
+  text-align: center;
+  font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+  width: 100%;
+  font-weight: 400;
+  line-height: 1;
+  font-family: "Unna", serif;
+  padding: 10px;
+}
+body main .driver-and-vehicle-section .driver-and-vehicle-cntr .driver-and-vehicle-content .vehicle-content-cntr .vehicle-specs-cntr .vehicle-name .vehicle-model {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 600;
+  font-family: "Mukta", sans-serif;
+}
+body main .driver-and-vehicle-section .driver-and-vehicle-cntr .driver-and-vehicle-content .vehicle-content-cntr .vehicle-specs-cntr ul {
+  padding: 10px;
+  color: black;
+}
+body main .driver-and-vehicle-section .driver-and-vehicle-cntr .driver-and-vehicle-content .vehicle-content-cntr .vehicle-specs-cntr ul li {
+  list-style-type: none;
+  font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+  padding: 3px 0px;
+}
+body main .driver-and-vehicle-section .driver-and-vehicle-cntr .driver-and-vehicle-content .vehicle-content-cntr .vehicle-specs-cntr ul li i {
+  color: rgb(140, 230, 6);
+}
+body main .contact-section {
+  width: 100%;
+  background: #f1f1f1;
+  min-height: calc(100vh - 100px);
+  background: rgb(201, 201, 201);
+}
+body main .contact-section .contact-cntr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+  gap: 10px;
+  width: min(1300px, 100%);
+  min-height: 700px;
+  padding: 10px;
+}
+body main .contact-section .contact-cntr .contact-title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-family: "Marck Script", cursive, serif;
+  letter-spacing: 10px;
+  color: #4B5320;
+  text-shadow: -5px 4px 6px rgba(0, 0, 0, 0.6);
+  width: 100%;
+}
+body main .contact-section .contact-cntr .contact-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+body main .contact-section .contact-cntr .contact-content .conversation-txt {
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  font-family: "Unna", serif;
+  letter-spacing: 15px;
+  text-align: center;
+  padding-bottom: 10px;
+  text-shadow: -1px 16px 6px rgba(0, 0, 0, 0.29);
+}
+@media only screen and (max-width: 750px) {
+  body main .contact-section .contact-cntr .contact-content .conversation-txt {
+    letter-spacing: 3px;
+  }
+}
+body main .contact-section .contact-cntr .contact-content .conversation-txt .conversation-word {
+  color: #80B192;
+}
+body main .contact-section .contact-cntr .contact-content .for-further-txt-span {
+  font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+  font-family: "Unna", serif;
+}
+body main .contact-section .contact-cntr .contact-content .contact-info-cntr {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 50px 10px;
+  gap: 20px;
+}
+body main .contact-section .contact-cntr .contact-content .contact-info-cntr .contact-address-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 180px;
+  height: 220px;
+  border-radius: 20px;
+  box-shadow: 9px 9px 18px -7px rgba(0, 0, 0, 0.63), -4px -4px 9px -1px rgb(255, 255, 255);
+  padding: 10px;
+}
+@media only screen and (max-width: 800px) {
+  body main .contact-section .contact-cntr .contact-content .contact-info-cntr .contact-address-container {
+    width: 150px;
+    height: 200px;
+  }
+}
+body main .contact-section .contact-cntr .contact-content .contact-info-cntr .contact-address-container .contact-icon-cntr {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 20px;
+  box-shadow: 9px 9px 18px -7px rgba(0, 0, 0, 0.63), -4px -4px 9px -1px rgb(255, 255, 255);
+}
+body main .contact-section .contact-cntr .contact-content .contact-info-cntr .contact-address-container .contact-icon-cntr i {
+  font-size: 3rem;
+  color: white;
+  text-shadow: rgba(0, 0, 0, 0.63) 1px 1px 0;
+}
+body main .contact-section .contact-cntr .contact-content .contact-info-cntr .contact-address-container .contact-title-address {
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.5rem;
+  font-family: "Unna", serif;
+}
+body main .contact-section .contact-cntr .contact-content .contact-info-cntr .contact-address-container .contact-address-txt {
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1rem;
+  font-family: "Unna", serif;
+  text-decoration: none;
+  color: black;
+  padding: 2px;
+  border-radius: 3px;
+  transition: 0.2s all linear;
+  text-decoration: underline;
+  margin-top: 8px;
+}
+body main .contact-section .contact-cntr .contact-content .contact-info-cntr .contact-address-container .contact-address-txt:hover {
+  color: #4B5320;
+  box-shadow: 9px 9px 18px -7px rgba(0, 0, 0, 0.63), -4px -4px 9px -1px rgb(255, 255, 255);
+}
+body footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  width: 100%;
+  height: 100px;
+  background: #4B5320;
+  box-shadow: 0px 2px 15px 3px rgba(0, 0, 0, 0.75);
+}
+body footer .copyright {
+  font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+  font-family: "Unna", serif;
+}/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,719 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+/* COLORS */
+$primary-color : #231C07;
+$secondary-color : #4B5320;
+$third-color : #80B192;
+$fourth-color : #DEFFD3;
+$fifth-color : #F7F7F7;
+
+/* FONTS-FAMILY */
+$font-fam-1 : "Unna", serif; 
+$font-fam-2 : "Sriracha", cursive, serif;
+$font-fam-3 : "Marck Script", cursive, serif;
+$font-fam-4 : "Mukta", sans-serif;
+
+/* FONTS-SIZES */
+$font-xxl : clamp(2.2rem, 5vw, 4rem);
+$font-xl : clamp(2rem, 4vw, 3.5rem);
+$font-l : clamp(1.5rem, 3.5vw, 3rem);
+$font-m : clamp(1.2rem, 2vw, 2rem);
+$font-s : clamp(1rem, 2vw, 1.5rem);
+$font-xs : clamp(0.85rem, 1.8vw, 1.1rem);
+$font-xxs : clamp(0.75rem, 1.5vw, 0.9rem);
+
+/* MIXIN DISPLAY */
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+@mixin flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    nav {
+        @include flex-row();
+        width: 100%;
+        height: 80px;
+        background: white;
+        box-shadow: 0px 2px 15px 3px rgba(0,0,0,0.75);
+        position: fixed;
+        top: 0%;
+        z-index: 10;
+
+        .nav-main-cntr {
+            @include flex-row();
+            justify-content: space-between;
+            width: min(1300px, 100%);
+            height: 100%;
+            background: white;
+
+            .logo {
+                height: 100%;
+                overflow: hidden;
+                padding: 5px;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain
+                }
+            }
+
+            .nav-links {
+                @include flex-row();
+                gap: 30px;
+                height: 100%;
+                padding: 5px;
+                
+                @media only screen and (max-width: 800px) {
+                    position: fixed;
+                    width: 100%;
+                    height: 300px;
+                    @include flex-column();
+                    top: -500px;
+                    background-color: white;
+                    box-shadow: 0px 2px 15px 3px rgba(0,0,0,0.75);
+                    z-index: -1;
+                    padding-top: 80px;
+                    transition: 0.5s all linear;
+                }
+
+                a {
+                    display: flex;
+                    text-decoration: none;
+                    font-size: $font-s;
+                    color: black;
+                    font-family: $font-fam-1;
+                    transition: 0.2s all linear;
+                }
+
+                a:hover {
+                    color: $third-color;
+                }
+            }
+
+            .nav-links.active {
+                top: 0px;
+            }
+
+
+            button {
+                margin-right: 30px;
+                display: none;
+                background: none;
+                border: none;
+                cursor: pointer;
+                transition: 0.2s all linear;
+                padding: 5px;
+                border-radius: 5px;
+                color: black;
+                font-size: 2rem;
+
+                .fa-xmark {
+                    display: none;
+                }
+
+                @media only screen and (max-width: 800px) {
+                    display: initial;
+                }
+            }
+
+            button:hover {
+                background: #4B5320;
+                color: white;
+            }
+
+        }
+    }
+
+    main {
+        @include flex-column();
+        color: black;
+        width: 100%;
+
+        section {
+            @include flex-row();
+            width: min(1300px, 100%);
+            min-height: 100vh;
+            padding: 100px 10px 10px 10px;
+
+            @media only screen and (max-width: 800px) {
+                min-height: 600px;
+            }
+        }
+
+        .home-section {
+            width: 100%;
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+
+            .img-background {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: -1;
+            }
+
+            .home-cntr {
+                @include flex-row();
+                gap: 10px;
+                width: min(1300px, 100%);
+                min-height: 700px;
+                padding: 10px;
+
+                @media only screen and (max-width: 900px) {
+                    flex-direction: column;
+                    gap: 20px;
+                }
+
+                .img-cntr {
+                    @include flex-row();
+                    flex-wrap: wrap;
+                    width: 100%;
+                    height: 100%;
+                    gap: 10px;
+
+                    // @media only screen and (max-width: 900px) {
+                    //     display: none;
+                    // }
+
+                    img {
+                        box-sizing: content-box;
+                        width: 170px;
+                        height: 170px;
+                        border-top: 10px solid $third-color;
+                        border-left: 10px solid $third-color;
+                        border-right: 10px solid $third-color;
+                        border-bottom: 50px solid $third-color;
+
+                        @media only screen and (max-width: 900px) {
+                            width: 130px;
+                            height: 130px;
+                            border-top: 6px solid $third-color;
+                            border-left: 6px solid $third-color;
+                            border-right: 6px solid $third-color;
+                            border-bottom: 30px solid $third-color;
+                        }
+
+                        @media only screen and (max-width: 600px) {
+                            width: 100px;
+                            height: 100px;
+                            border-top: 3px solid $third-color;
+                            border-left: 3px solid $third-color;
+                            border-right: 3px solid $third-color;
+                            border-bottom: 15px solid $third-color;
+                        }
+                    }
+
+                    .img-one {
+                        transform: rotate(10deg);
+                    }
+                }
+                
+                .introduction-cntr {
+                    @include flex-column();
+                    gap: 30px;
+                    width: 100%;
+                    min-height: 400px;
+                    padding: 10px;
+                    background-color: rgba(175, 175, 175, 0.1);
+                    -webkit-backdrop-filter: blur(5px);
+                    backdrop-filter: blur(5px);
+                    border-radius: 10px;
+                    border: 3px solid rgba(175, 175, 175, 0.2);
+
+                    .slogan {
+                        color: rgb(236, 236, 236);
+                        font-size: clamp(3rem, 5vw, 4.5rem);
+                        line-height: 0.9;
+                        width: 100%;
+                        font-weight: 700;
+                        text-align: left;
+                        font-family: $font-fam-2;
+                        letter-spacing: 2px;
+                        text-shadow: -5px 4px 6px rgba(0,0,0,0.6);
+
+                        @media only screen and (max-width: 900px) {
+                            text-align: center;
+                        }
+
+                        .journey-txt {
+                            color: $secondary-color;
+                        }
+                    }
+
+                    .intro-txt {
+                        color: rgb(236, 236, 236);
+                        text-shadow: -5px 4px 6px rgba(0,0,0,0.6);
+                        width: 100%;
+                        text-align: center;
+                        font-size: $font-m;
+                        font-weight: 600;
+                        font-family: $font-fam-1;
+                    }
+
+                    .contact-info-cntr {
+                        @include flex-row();
+                        flex-wrap: wrap;
+                        gap: 5px;
+                        width: 100%;
+                        padding: 5px;
+
+                        a {
+                            text-decoration: none;
+                            color: white;
+                            font-size: $font-xs;
+                            padding: 5px 20px;
+                            background: none;
+                            transition: 0.2s all linear;
+                            border-radius: 10px;
+
+                            i {
+                                margin-right: 5px;
+                            }
+                        }
+
+                        a:hover {
+                            color: black;
+                            background: $fourth-color;
+                        }
+                    }
+                }
+            }
+        }
+
+        .service-section {
+            width: 100%;
+
+            .service-cntr {
+                @include flex-column();
+                gap: 10px;
+                width: min(1300px, 100%);
+                min-height: 700px;
+                padding: 10px;
+
+                .section-title {
+                    font-size: $font-xl;
+                    font-family: $font-fam-3;
+                    letter-spacing: 10px;
+                    color: $secondary-color;
+                    text-shadow: -5px 4px 6px rgba(0,0,0,0.6);
+                    width: 100%;
+                }
+
+                .service-content {
+                    @include flex-row();
+                    width: 100%;
+                    gap: 10px;
+
+                    .service-offer-cntr {
+                        @include flex-column();
+                        width: 100%;
+                        background: #f1f1f1;
+                        padding: 10px;
+
+                        @media only screen and (max-width: 1100px) {
+                            background: $fourth-color;
+                        }
+
+                        .car-rental-with-driver {
+                            text-align: center;
+                            font-size: $font-m;
+                            font-family: $font-fam-1;
+                            width: 100%;
+
+                        }
+
+                        .offers-cntr {
+                            @include flex-column();
+                            width: 100%;
+                            gap: 10px;
+                            padding: 10px;
+
+                            .offer {
+                                @include flex-row();
+                                background: white;
+                                width: min(500px, 100%);
+                                min-height: 150px;
+                                gap: 10px;
+                                padding: 5px;
+
+                                @media only screen and (max-width: 450px) {
+                                    flex-direction: column;
+                                    min-height: 250px;
+                                }
+
+                                img {
+                                    width: 150px;
+                                    height: 100%;
+                                }
+
+                                .offer-txt-cntr {
+                                    @include flex-column();
+                                    gap: 5px;
+                                    height: 100%;
+
+                                    .offer-title {
+                                        font-size: $font-s;
+                                    }
+
+                                    .offer-details {
+                                        font-size: $font-xxs;
+                                        font-family: $font-fam-4;
+                                        text-align: left;
+                                    }
+
+                                }
+                            }
+                        }
+
+                        .service-note {
+                            @include flex-row();
+                            width: 100%;
+                            gap: 10px;
+                            padding: 10px;
+                            border-radius: 10px;
+                            background: white;
+        
+                            .note-title {
+                                font-family: $font-fam-1;
+                                font-size: $font-s;
+                                font-weight: 700;   
+                            }
+        
+                            .note-list-cntr {
+                                @include flex-column();
+                                font-family: $font-fam-1;
+                                gap: 5px;
+                                line-height: 1px;
+                                
+                                .note-details {
+                                    width: 100%;
+                                    font-size: $font-xxs;
+                                    font-family: $font-fam-4;
+        
+                                    i {
+                                        color: $third-color;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+            .service-offer-img {
+                @include flex-row();
+                gap: 10px;
+                width: 100%;
+                height: 700px;
+                overflow: hidden;
+
+                @media only screen and (max-width: 1100px) {
+                    display: none;
+                }
+
+                img {
+                    object-fit: fill;
+                    width: 100%;
+                    overflow: hidden;
+                    height: 100%;
+                    border-radius: 100px 0px 100px 0px;
+                }
+            }
+        }
+
+        .driver-and-vehicle-section {
+            width: 100%;
+            background: #f1f1f1;
+
+            .driver-and-vehicle-cntr {
+                @include flex-column();
+                gap: 10px;
+                width: min(1300px, 100%);
+                min-height: 700px;
+                padding: 10px;
+
+                .driver-and-vehicle-title {
+                    font-size: $font-xl;
+                    font-family: $font-fam-3;
+                    letter-spacing: 10px;
+                    color: $secondary-color;
+                    text-shadow: -5px 4px 6px rgba(0,0,0,0.6);
+                    width: 100%;
+                }
+
+                .driver-and-vehicle-content {
+                    @include flex-row();
+                    width: 100%;
+                    gap: 50px;
+
+                    @media only screen and (max-width: 800px) {
+                        flex-direction: column;
+                    }
+
+                    .driver-content-cntr {
+                        @include flex-column();
+                        width: 100%;
+                        min-height: 600px;
+                        gap: 10px;
+
+                        .driver-title {
+                            text-align: center;
+                            font-size: $font-m;
+                            font-family: $font-fam-1;
+                            width: 100%;
+                        }
+
+                        .driver-img-cntr {
+                            width: 100%;
+                            height: 500px;
+                            overflow: hidden;
+                            border-radius: 30% 70% 43% 57% / 92% 60% 40% 8%;
+                            animation: borderAnimate 40s linear infinite;
+                            box-shadow: inset 0px 10px 14px 0px rgba(0,0,0,0.75);
+                            
+
+                            @keyframes borderAnimate {
+                                10% {border-radius: 62% 38% 29% 71% / 78% 43% 57% 22%;}
+                                30% {border-radius: 49% 51% 17% 83% / 46% 33% 67% 54% ;}
+                                50% {border-radius: 21% 79% 58% 42% / 66% 68% 32% 34%  ;}
+                                70% {border-radius: 47% 53% 35% 65% / 21% 84% 16% 79%  ;}
+                                100% {border-radius: 62% 38% 29% 71% / 78% 43% 57% 22%;}
+                            }
+
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: fill;
+                            }
+                        }
+
+                        .driver-details {
+                            font-size: $font-xs;
+                            text-align: left;
+                            font-family: $font-fam-2;
+                        }
+                    }
+
+                    .vehicle-content-cntr {
+                        @include flex-column();
+                        width: 100%;
+                        min-height: 500px;
+                        gap: 20px;
+
+                        .vehicle-title {
+                            text-align: center;
+                            font-size: $font-m;
+                            font-family: $font-fam-1;
+                            width: 100%;
+                        }
+
+                        .vehicle-img-cntr {
+                            width: 100%;
+                            overflow: hidden;
+                            border-radius: 20px;
+
+                            img {
+                                width: 100%;
+                            }
+                        }
+
+                        .vehicle-specs-cntr {
+                            @include flex-column();
+                            width: 100%;
+                            background: white;
+                            border-radius: 20px;
+
+                            .vehicle-name {
+                                text-align: center;
+                                font-size: $font-xs;
+                                width: 100%;
+                                font-weight: 400;
+                                line-height: 1;
+                                font-family: $font-fam-1;
+                                padding: 10px;
+
+                                .vehicle-model {
+                                    font-size: $font-s;
+                                    font-weight: 600;
+                                    font-family: $font-fam-4;
+                                }
+                            }
+
+                            ul {
+                                padding: 10px;
+                                color: black;
+
+                                li {
+                                    list-style-type: none;
+                                    font-size: $font-xs;
+                                    padding: 3px 0px;
+
+                                    i {
+                                        color: rgb(140, 230, 6);
+                                    }
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+            }
+        }
+        
+        .contact-section {
+            width: 100%;
+            background: #f1f1f1;
+            min-height: calc(100vh - 100px);
+            background: rgb(201, 201, 201);
+
+            .contact-cntr {
+                @include flex-column();
+                justify-content: space-around;
+                gap: 10px;
+                width: min(1300px, 100%);
+                min-height: 700px;
+                padding: 10px;
+
+                .contact-title {
+                    font-size: $font-xl;
+                    font-family: $font-fam-3;
+                    letter-spacing: 10px;
+                    color: $secondary-color;
+                    text-shadow: -5px 4px 6px rgba(0,0,0,0.6);
+                    width: 100%;
+                }
+
+                .contact-content {
+                    @include flex-column();
+                    gap: 10px;
+                    width: 100%;
+
+                    .conversation-txt {
+                        font-size: $font-m;
+                        font-family: $font-fam-1;
+                        letter-spacing: 15px;
+                        text-align: center;
+                        padding-bottom: 10px;
+                        text-shadow: -1px 16px 6px rgba(0,0,0,0.29);
+
+                        @media only screen and (max-width: 750px) {
+                            letter-spacing: 3px;
+                        }
+
+                        .conversation-word {
+                            color: $third-color;
+                        }
+                    }
+
+                    .for-further-txt-span {
+                        font-size: $font-xs;
+                        font-family: $font-fam-1;
+                    }
+
+                    .contact-info-cntr {
+                        @include flex-row();
+                        flex-wrap: wrap;
+                        width: 100%;
+                        padding: 50px 10px;
+                        gap: 20px;
+
+                        .contact-address-container {
+                            @include flex-column();
+                            gap: 10px;
+                            width: 180px;
+                            height: 220px;
+                            border-radius: 20px;
+                            box-shadow: 9px 9px 18px -7px rgba(0, 0, 0, 0.63), -4px -4px 9px -1px rgba(255, 255, 255, 1);    
+                            padding: 10px;
+
+                            @media only screen and (max-width: 800px) {
+                                width: 150px;
+                                height: 200px;
+                            }
+
+                            .contact-icon-cntr {
+                                @include flex-row();
+                                text-align: center;
+                                width: 100px;
+                                height: 100px;
+                                border-radius: 20px;
+                                box-shadow: 9px 9px 18px -7px rgba(0, 0, 0, 0.63), -4px -4px 9px -1px rgba(255, 255, 255, 1);
+
+                                i {
+                                    font-size: 3rem;
+                                    color: white;
+                                    text-shadow: rgba(0, 0, 0, 0.63) 1px 1px 0;
+                                }
+                            }
+
+                            .contact-title-address {
+                                width: 100%;
+                                text-align: center;
+                                font-weight: 500;
+                                font-size: 1.5rem;
+                                font-family: $font-fam-1;
+                            }
+
+                            .contact-address-txt {
+                                width: 100%;
+                                text-align: center;
+                                font-weight: 500;
+                                font-size: 1rem;
+                                font-family: $font-fam-1;
+                                text-decoration: none;
+                                color: black;
+                                padding: 2px;
+                                border-radius: 3px;
+                                transition: 0.2s all linear;
+                                text-decoration: underline;
+                                margin-top: 8px;
+                            }
+
+                            .contact-address-txt:hover {
+                                color: $secondary-color;
+                                box-shadow: 9px 9px 18px -7px rgba(0, 0, 0, 0.63), -4px -4px 9px -1px rgba(255, 255, 255, 1);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    footer {
+        @include flex-column();
+        color: white;
+        width: 100%;
+        height: 100px;
+        background: $secondary-color;
+        box-shadow: 0px 2px 15px 3px rgba(0,0,0,0.75);
+
+        .copyright {
+            font-size: $font-xs;
+            font-family: $font-fam-1;
+        }
+    }
+}
+
